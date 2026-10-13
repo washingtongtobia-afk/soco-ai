@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoCo — Conversational AI Social Media Strategist</title>
+  <meta name="description" content="Meet SoCo, your monthly social media strategist. Conversational AI social media strategist for Construction, Nonprofits, Restaurants, and Law Offices. Plan monthly draft content through ongoing conversation.">
+  
+  <!-- Modern Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/frontend-static/index.css">
+</head>
+<body class="soco-theme-white">
+
+  <!-- ============================================================ -->
+  <!-- TOP NAVIGATION BAR                                           -->
+  <!-- ============================================================ -->
+  <header class="top-nav" id="main-nav">
+    <div class="nav-container">
+      <div class="brand" id="brand-logo" role="button" tabindex="0">
+        <span class="brand-name">SoCo</span>
+        <span class="brand-sparkle-badge" title="SoCo AI">✳️</span>
+      </div>
+
+      <nav class="nav-links" id="nav-center-links">
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#industries-selection" class="nav-link">Industries</a>
+        <a href="#why-soco" class="nav-link">Why SoCo</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Notification Center Bell (Authenticated) -->
+        <button class="icon-btn notif-btn hidden" id="notif-bell" title="Notification Center" aria-label="Notifications">
+          <span class="bell-icon">🔔</span>
+          <span class="badge-count hidden" id="notif-badge">0</span>
+        </button>
+
+        <!-- Unauthenticated actions -->
+        <div class="auth-buttons" id="nav-unauth-actions">
+          <button class="btn btn-demo-pill" id="btn-nav-demo">Try demo</button>
+          <button class="btn btn-ghost" id="btn-nav-login">Sign In</button>
+          <button class="btn btn-primary-pill" id="btn-nav-signup">Request Beta</button>
+        </div>
+
+        <!-- Authenticated user pill -->
+        <div class="user-pill hidden" id="nav-auth-actions">
+          <span class="biz-pill-name" id="nav-biz-name">My Business</span>
+          <span class="industry-badge" id="nav-biz-industry">Construction</span>
+          <button class="icon-btn" id="btn-nav-settings" title="Workspace Settings">⚙️</button>
+          <button class="btn btn-outline-sm" id="btn-nav-logout">Sign Out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notification Center Drawer -->
+  <aside class="drawer-panel hidden" id="notif-drawer" aria-label="Notification Center">
+    <div class="drawer-header">
+      <h3>🔔 Notifications</h3>
+      <button class="close-btn" id="btn-close-notif">×</button>
+    </div>
+    <div class="drawer-body" id="notif-list">
+      <div class="empty-state">No unread notifications</div>
+    </div>
+  </aside>
+
+  <!-- ============================================================ -->
+  <!-- VIEW 1: CREATIVE SAAS LANDING PAGE (Unauthenticated)        -->
+  <!-- ============================================================ -->
+  <main class="landing-view" id="landing-view">
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-header-content">
+        <div class="hero-eyebrow">
+          <span class="sparkle-icon">✨</span>
+          <span>MEET YOUR AI SOCIAL STRATEGIST</span>
+        </div>
+
+        <h1 class="hero-title">
+          Big ideas. Better posts. <span class="highlight-purple">Just ask SoCo.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Your social media strategy starts with a conversation.
+        </p>
+
+        <div class="hero-cta-group">
+          <button class="btn btn-dark-pill btn-lg" id="hero-try-demo-btn">
+            ⚡ Try Interactive Demo
+          </button>
+          <button class="btn btn-secondary-pill btn-lg" id="hero-get-started-btn">
+            Explore 4 Industries ↓
+          </button>
+        </div>
+
+        <!-- 3 Visual Preview Cards (Directly Inspired by Reference) -->
+        <div class="hero-feature-trio">
+          <div class="trio-card trio-purple" id="trio-content-ideas">
+            <span class="trio-icon">✨</span>
+            <span class="trio-label">Content ideas</span>
+          </div>
+
+          <div class="trio-card trio-cyan" id="trio-ai-chat">
+            <span class="trio-icon">💬</span>
+            <span class="trio-label">AI chat</span>
+          </div>
+
+          <div class="trio-card trio-yellow" id="trio-industry-news">
+            <span class="trio-icon">📰</span>
+            <span class="trio-label">Industry news</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Centerpiece: Layered Interactive Showcase with Floating Cards -->
+      <div class="hero-showcase-container">
+        <!-- Floating Badges Around Product Showcase -->
+        <div class="floating-badge badge-social-linkedin float-slow-1">
+          <span class="badge-icon">💼</span>
+          <div class="badge-meta">
+            <strong>LinkedIn</strong>
+            <span>Professional Authority</span>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-social-instagram float-slow-2">
+          <span class="badge-icon">📸</span>
+          <div class="badge-meta">
+            <strong>Instagram</strong>
+            <span>Visual Storytelling</span>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-social-facebook float-slow-3">
+          <span class="badge-icon">📘</span>
+          <div class="badge-meta">
+            <strong>Facebook</strong>
+            <span>Community Reach</span>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-social-x float-slow-4">
+          <span class="badge-icon">✖️</span>
+          <div class="badge-meta">
+            <strong>X (Twitter)</strong>
+            <span>Industry Updates</span>
+          </div>
+        </div>
+
+        <!-- Floating Creative Content Pillows -->
+        <div class="floating-creative-card card-float-observance float-bounce-1">
+          <span class="fc-tag">🗓️ October Theme</span>
+          <h4>Careers in Construction Month</h4>
+          <span class="fc-status">3 tailored post concepts drafted</span>
+        </div>
+
+        <div class="floating-creative-card card-float-news float-bounce-2">
+          <span class="fc-tag">📰 News Vetted</span>
+          <h4>$12M Regional DOT Bridge Contract Award</h4>
+          <span class="fc-status status-approved">✅ Approved for LinkedIn</span>
+        </div>
+
+        <div class="floating-creative-card card-float-captions float-bounce-3">
+          <span class="fc-tag">✨ Draft Copy Ready</span>
+          <p>"Pouring foundation on the Midtown project with zero incidents..."</p>
+          <span class="fc-platform-tag">LinkedIn Post #1</span>
+        </div>
+
+        <!-- Realistic SoCo Chat Window Preview -->
+        <div class="showcase-window-card">
+          <div class="window-topbar">
+            <div class="window-controls">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="window-title">
+              <span class="brand-sparkle-sm">✳️</span>
+              <span>SoCo Monthly Strategist • October 2026 Strategy Session</span>
+            </div>
+            <div class="window-status-pill">
+              <span class="pulse-green"></span> Draft Safeguard Active
+            </div>
+          </div>
+
+          <div class="window-chat-body">
+            <!-- SoCo Greeting -->
+            <div class="preview-msg msg-model">
+              <div class="preview-avatar soco-avatar">SoCo</div>
+              <div class="preview-bubble">
+                <p>👋 Hey <strong>Skyline Civil Constructors</strong>! <strong>What do you have going on for October?</strong></p>
+                <p class="preview-sub">Tell me about upcoming project milestones, equipment arrivals, or team wins, and I'll build your monthly drafts.</p>
+                
+                <!-- Observances Mini Card -->
+                <div class="preview-observances-box">
+                  <span class="obs-title">🎉 Key October Observances:</span>
+                  <div class="obs-tags">
+                    <span class="obs-chip">🏗️ Careers in Construction Month (Oct 1-31)</span>
+                    <span class="obs-chip">👷 World Architecture Day (Oct 5)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- User Response -->
+            <div class="preview-msg msg-user">
+              <div class="preview-avatar user-avatar">You</div>
+              <div class="preview-bubble bubble-user">
+                <p>We poured foundation on the Midtown bridge project this week and welcomed 3 new civil project engineers.</p>
+              </div>
+            </div>
+
+            <!-- SoCo Draft Strategy -->
+            <div class="preview-msg msg-model">
+              <div class="preview-avatar soco-avatar">SoCo</div>
+              <div class="preview-bubble">
+                <p>🚀 Excellent milestones! I drafted <strong>3 tailored post concepts</strong> celebrating team growth and highlighting structural safety standards.</p>
+
+                <!-- Draft Caption Card Preview -->
+                <div class="preview-caption-card">
+                  <div class="cap-preview-header">
+                    <span class="platform-chip chip-linkedin">LinkedIn</span>
+                    <span class="cap-title">Week 1: Engineering Milestone & Team Spotlight</span>
+                    <span class="status-pill-draft">Draft</span>
+                  </div>
+                  <div class="cap-preview-text">
+                    "Excited to report foundation pour complete on the Midtown Bridge project! With 3 new civil project engineers on site, our team continues to build the infrastructure Atlanta relies on every day with safety first."
+                  </div>
+                  <div class="cap-preview-tags">#CivilEngineering #Infrastructure #AtlantaConstruction #WorkplaceSafety</div>
+                  <div class="cap-preview-actions">
+                    <span class="preview-btn">📋 Copy Post</span>
+                    <span class="preview-btn">✏️ Edit Draft</span>
+                    <span class="preview-btn">🕒 Version History</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="window-chat-footer">
+            <div class="preview-chips-row">
+              <span class="preview-chip-btn">Midtown Bridge Update</span>
+              <span class="preview-chip-btn">Discover Georgia DOT News</span>
+              <span class="preview-chip-btn">Highlight October Observances</span>
+            </div>
+            <div class="preview-input-bar">
+              <span class="preview-input-placeholder">Tell SoCo what events, announcements, or activities you have going on this month...</span>
+              <button class="preview-send-btn">Send ↵</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: BALANCED 2x2 INDUSTRY CARDS                       -->
+    <!-- ============================================================ -->
+    <section class="industries-section" id="industries-selection">
+      <div class="section-container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow">TAILORED STRATEGY</span>
+          <h2>Select Your Business Industry</h2>
+          <p>SoCo specializes its brand voice, industry knowledge, holiday observances, and news monitoring specifically for your sector.</p>
+        </div>
+
+        <div class="industry-grid-2x2">
+          <!-- 1. Construction / Civil Engineering -->
+          <div class="industry-card card-construction" id="industry-construction" data-industry="construction_civil_engineering" role="button" tabindex="0">
+            <div class="ind-card-glow"></div>
+            <div class="ind-card-inner">
+              <div class="ind-top-row">
+                <div class="ind-icon-box box-construction">🏗️</div>
+                <span class="ind-badge badge-blue">Infrastructure & Heavy Civil</span>
+              </div>
+              <h3>Construction / Civil Engineering</h3>
+              <p>Highlight job site progress, structural safety culture, infrastructure bid wins, and engineering innovation with an authoritative, practical voice.</p>
+              <ul class="ind-features-list">
+                <li><span class="check-icon">✓</span> Safety culture & OSHA compliance spotlights</li>
+                <li><span class="check-icon">✓</span> Project milestones & public bid awards</li>
+                <li><span class="check-icon">✓</span> Drone surveying & BIM innovations</li>
+              </ul>
+              <div class="ind-card-actions">
+                <button class="btn btn-ind-demo" data-industry="construction_civil_engineering">⚡ Test Construction Demo</button>
+                <span class="ind-card-link">Select Industry →</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Nonprofit -->
+          <div class="industry-card card-nonprofit" id="industry-nonprofit" data-industry="nonprofit" role="button" tabindex="0">
+            <div class="ind-card-glow"></div>
+            <div class="ind-card-inner">
+              <div class="ind-top-row">
+                <div class="ind-icon-box box-nonprofit">🤝</div>
+                <span class="ind-badge badge-purple">Community & Philanthropy</span>
+              </div>
+              <h3>Nonprofit & Philanthropy</h3>
+              <p>Engage donor communities with heartfelt impact stories, transparent fund utilization, volunteer spotlights, and strategic Giving Tuesday campaigns.</p>
+              <ul class="ind-features-list">
+                <li><span class="check-icon">✓</span> Authentic donor stewardship & impact metrics</li>
+                <li><span class="check-icon">✓</span> Giving Tuesday & year-end donation drives</li>
+                <li><span class="check-icon">✓</span> Grassroots mission & volunteer storytelling</li>
+              </ul>
+              <div class="ind-card-actions">
+                <button class="btn btn-ind-demo" data-industry="nonprofit">⚡ Test Nonprofit Demo</button>
+                <span class="ind-card-link">Select Industry →</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Restaurant -->
+          <div class="industry-card card-restaurant" id="industry-restaurant" data-industry="restaurant" role="button" tabindex="0">
+            <div class="ind-card-glow"></div>
+            <div class="ind-card-inner">
+              <div class="ind-top-row">
+                <div class="ind-icon-box box-restaurant">🍽️</div>
+                <span class="ind-badge badge-yellow">Dining & Hospitality</span>
+              </div>
+              <h3>Restaurant & Food Service</h3>
+              <p>Showcase seasonal culinary specials, chef behind-the-scenes, weekend promotions, and holiday menus in an inviting, sensory-rich tone.</p>
+              <ul class="ind-features-list">
+                <li><span class="check-icon">✓</span> Seasonal menu launches & wine pairings</li>
+                <li><span class="check-icon">✓</span> Weekend specials & community dining</li>
+                <li><span class="check-icon">✓</span> Sensory behind-the-scenes culinary storytelling</li>
+              </ul>
+              <div class="ind-card-actions">
+                <button class="btn btn-ind-demo" data-industry="restaurant">⚡ Test Restaurant Demo</button>
+                <span class="ind-card-link">Select Industry →</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Law Office -->
+          <div class="industry-card card-lawoffice" id="industry-lawoffice" data-industry="law_office" role="button" tabindex="0">
+            <div class="ind-card-glow"></div>
+            <div class="ind-card-inner">
+              <div class="ind-top-row">
+                <div class="ind-icon-box box-lawoffice">⚖️</div>
+                <span class="ind-badge badge-mint">Legal Services & Advisory</span>
+              </div>
+              <h3>Law Office & Legal Practice</h3>
+              <p>Provide calm, authoritative thought leadership on statutory shifts and legal FAQs while clearly separating proposed bills from enacted laws.</p>
+              <ul class="ind-features-list">
+                <li><span class="check-icon">✓</span> Factual legislative updates & regulatory shifts</li>
+                <li><span class="check-icon">✓</span> Client FAQ & educational advisory insights</li>
+                <li><span class="check-icon">✓</span> Strict ethical disclaimer & accuracy compliance</li>
+              </ul>
+              <div class="ind-card-actions">
+                <button class="btn btn-ind-demo" data-industry="law_office">⚡ Test Law Office Demo</button>
+                <span class="ind-card-link">Select Industry →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 3: HOW IT WORKS (Visual, Engaging & Simple)          -->
+    <!-- ============================================================ -->
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="section-container">
+        <div class="section-header-centered">
+          <span class="section-eyebrow">SIMPLE 4-STEP WORKFLOW</span>
+          <h2>How SoCo Transforms Your Social Strategy</h2>
+          <p>No empty calendar spreadsheets. No automated posting disasters. Just ongoing, high-leverage strategy.</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number step-num-purple">01</div>
+            <div class="step-icon-wrap wrap-purple">💬</div>
+            <h3>Start with Conversation</h3>
+            <p>Tell SoCo what events, announcements, or job site milestones you have coming up this month. It’s as natural as talking to an agency strategist.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-number step-num-blue">02</div>
+            <div class="step-icon-wrap wrap-blue">✨</div>
+            <h3>Receive Tailored Drafts</h3>
+            <p>SoCo organizes your activities into structured monthly concepts, crafting platform-specific copy and hashtags in your authenticated brand voice.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-number step-num-yellow">03</div>
+            <div class="step-icon-wrap wrap-yellow">📰</div>
+            <h3>Approve Vetted News</h3>
+            <p>SoCo actively monitors verified industry news for your location. You approve articles and select target platforms before any drafts are generated.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card">
+            <div class="step-number step-num-mint">04</div>
+            <div class="step-icon-wrap wrap-mint">🔒</div>
+            <h3>Refine & Post on Your Terms</h3>
+            <p>Our Human-in-the-Loop safeguard means zero auto-posting. Revise copy in-line, track version history, and copy to publish when you're ready.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 4: WHY SOCO (Differentiators)                       -->
+    <!-- ============================================================ -->
+    <section class="differentiation-section" id="why-soco">
+      <div class="section-container">
+        <div class="diff-grid">
+          <div class="diff-box">
+            <span class="diff-emoji">💬</span>
+            <h3>Conversational, Not Calendared</h3>
+            <p>Traditional social media apps force you to stare at empty date grids. SoCo asks the right questions and generates your strategy through conversation.</p>
+          </div>
+          <div class="diff-box">
+            <span class="diff-emoji">📰</span>
+            <h3>Strict News Grounding</h3>
+            <p>Every industry news post is backed by real, vetted articles. SoCo summarizes why it matters and waits for your explicit platform approval.</p>
+          </div>
+          <div class="diff-box">
+            <span class="diff-emoji">🔒</span>
+            <h3>Draft Safeguard Active</h3>
+            <p>Your brand reputation is too valuable to risk on uncontrolled auto-posting. Everything remains a draft until your human team approves it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- VIEW 2: CONVERSATIONAL CHAT WORKSPACE (Authenticated)        -->
+  <!-- ============================================================ -->
+  <div class="workspace-view hidden" id="workspace-view">
+    <!-- Sidebar -->
+    <aside class="workspace-sidebar" id="sidebar">
+      <!-- Business Profile Card -->
+      <div class="sidebar-biz-card">
+        <div class="biz-avatar" id="sidebar-avatar">🏢</div>
+        <div class="biz-info">
+          <h4 id="sidebar-biz-name">Skyline Builders</h4>
+          <span class="industry-badge" id="sidebar-biz-industry">Construction</span>
+          <span class="location-text" id="sidebar-biz-location">Atlanta, GA</span>
+        </div>
+      </div>
+
+      <!-- Brand Voice Summary -->
+      <div class="brand-voice-box">
+        <div class="voice-header">🎙️ Brand Voice</div>
+        <p class="voice-text" id="sidebar-biz-voice">Authoritative, practical, and safety-focused.</p>
+      </div>
+
+      <!-- Monthly Conversations Navigation -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-header">
+          <span>Monthly Strategy</span>
+          <button class="btn-text-action" id="btn-new-month" title="Start new month conversation">+ New Month</button>
+        </div>
+        <nav class="months-list" id="months-nav-list" aria-label="Monthly conversations">
+          <!-- Dynamically populated monthly conversations -->
+        </nav>
+      </div>
+
+      <!-- Quick Content Viewers -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-header">
+          <span>Saved Workspace Content</span>
+        </div>
+        <div class="sidebar-links">
+          <button class="sidebar-link active" id="btn-view-chat">
+            <span>💬 Monthly Strategist Chat</span>
+          </button>
+          <button class="sidebar-link" id="btn-view-captions">
+            <span>📝 Saved Draft Captions</span>
+            <span class="counter-badge" id="sidebar-caption-count">0</span>
+          </button>
+          <button class="sidebar-link" id="btn-view-news">
+            <span>📰 Industry News Review</span>
+            <span class="counter-badge" id="sidebar-news-count">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <button class="btn btn-outline-sm btn-full" id="btn-sidebar-settings">⚙️ Settings</button>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="chat-workspace-panel" id="chat-panel">
+      <!-- Session Header -->
+      <div class="workspace-header">
+        <div class="session-info">
+          <h2 id="chat-month-title">October 2026 Strategy Session</h2>
+          <div class="session-meta">
+            <span class="status-indicator">● Active Session</span>
+            <span class="platform-chips" id="header-platform-chips">
+              <span class="platform-tag tag-linkedin">LinkedIn</span>
+              <span class="platform-tag tag-instagram">Instagram</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="header-quick-actions">
+          <button class="btn btn-secondary-sm" id="btn-find-news">📰 Discover News</button>
+          <button class="btn btn-secondary-sm" id="btn-show-holidays">🎉 Month Observances</button>
+        </div>
+      </div>
+
+      <!-- Chat Stream Area -->
+      <div class="chat-stream" id="chat-messages-stream" role="log" aria-live="polite">
+        <!-- Messages dynamically rendered here -->
+      </div>
+
+      <!-- Suggestion Chips Bar -->
+      <div class="suggestions-bar" id="suggestions-bar">
+        <span class="suggestions-label">Quick Ideas:</span>
+        <button class="chip-btn" data-prompt="We are pouring foundation on the Midtown bridge project this week and welcomed 3 new civil engineers.">Midtown Bridge Update</button>
+        <button class="chip-btn" data-prompt="Please discover recent industry news and timely announcements for our area.">Discover Industry News</button>
+        <button class="chip-btn" data-prompt="What upcoming observances or awareness themes should we highlight this month?">Month Observances</button>
+      </div>
+
+      <!-- Chat Input Area -->
+      <div class="chat-input-container">
+        <div class="draft-safeguard-banner">
+          🔒 <strong>Draft Safeguard Active</strong>: SoCo never auto-publishes. All generated copy remains drafts for your manual review and posting.
+        </div>
+        <form class="chat-input-form" id="chat-form">
+          <textarea
+            class="chat-textarea"
+            id="chat-input-text"
+            rows="2"
+            placeholder="Tell SoCo what events, announcements, or activities you have going on this month..."
+            aria-label="Message SoCo"
+          ></textarea>
+          <button type="submit" class="btn btn-primary send-btn" id="chat-send-btn" aria-label="Send message">
+            <span>Send</span>
+          </button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: DEMO SELECTOR (Instant Functional Testing)           -->
+  <!-- ============================================================ -->
+  <div class="modal-backdrop hidden" id="demo-modal">
+    <div class="modal-card modal-card-demo">
+      <div class="modal-header">
+        <div>
+          <h3>⚡ Launch Instant Functional Demo</h3>
+          <p class="modal-sub">Explore SoCo without an invitation code or owning a business.</p>
+        </div>
+        <button class="modal-close" id="btn-close-demo">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="demo-intro-text">Select an industry persona to load a pre-configured business profile with active monthly strategy and draft captions:</p>
+        <div class="demo-options-grid">
+          <button class="demo-pick-btn" data-industry="construction_civil_engineering">
+            <span class="demo-icon">🏗️</span>
+            <strong>Skyline Civil Constructors</strong>
+            <span class="demo-ind-sub">Construction • Atlanta, GA</span>
+          </button>
+          <button class="demo-pick-btn" data-industry="nonprofit">
+            <span class="demo-icon">🤝</span>
+            <strong>Hope Forward Foundation</strong>
+            <span class="demo-ind-sub">Nonprofit • Chicago, IL</span>
+          </button>
+          <button class="demo-pick-btn" data-industry="restaurant">
+            <span class="demo-icon">🍽️</span>
+            <strong>Osteria Bella Trattoria</strong>
+            <span class="demo-ind-sub">Restaurant • Austin, TX</span>
+          </button>
+          <button class="demo-pick-btn" data-industry="law_office">
+            <span class="demo-icon">⚖️</span>
+            <strong>Apex Legal Counsel</strong>
+            <span class="demo-ind-sub">Law Office • Boston, MA</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: AUTHENTICATION & PRIVATE BETA REGISTRATION           -->
+  <!-- ============================================================ -->
+  <div class="modal-backdrop hidden" id="auth-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-tabs">
+          <button class="tab-btn active" id="tab-auth-signup">Create Account</button>
+          <button class="tab-btn" id="tab-auth-login">Sign In</button>
+        </div>
+        <button class="modal-close" id="btn-close-auth">×</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Quick Demo Callout -->
+        <div class="demo-quick-banner" id="banner-quick-demo">
+          <span>Testing without an account?</span>
+          <button class="btn btn-outline-xs" id="btn-modal-quick-demo">⚡ One-Click Instant Demo</button>
+        </div>
+
+        <!-- SIGNUP FORM (Private Beta Invitation + Profile Setup) -->
+        <form class="auth-form" id="form-signup">
+          <div class="alert-box alert-info">
+            🔒 <strong>Private Beta Access</strong>: Registration is restricted to authorized businesses with an invitation token.
+          </div>
+
+          <div class="form-group">
+            <label for="reg-invitation">Beta Invitation Code *</label>
+            <input type="text" id="reg-invitation" class="form-input text-uppercase" placeholder="SOCO-A7F92B104D38E591" required>
+            <span class="form-help">Enter the single-use invitation code provided by SoCo.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-industry">Selected Industry *</label>
+            <select id="reg-industry" class="form-input" required>
+              <option value="construction_civil_engineering">Construction / Civil Engineering</option>
+              <option value="nonprofit">Nonprofit & Philanthropy</option>
+              <option value="restaurant">Restaurant & Food Service</option>
+              <option value="law_office">Law Office & Legal Practice</option>
+            </select>
+            <span class="form-help">Saved permanently. You will not be asked again on return visits.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-biz-name">Business Name *</label>
+            <input type="text" id="reg-biz-name" class="form-input" placeholder="e.g., Skyline Civil Constructors" required>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-biz-location">Location (City, State) *</label>
+            <input type="text" id="reg-biz-location" class="form-input" placeholder="e.g., Atlanta, GA" required>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-biz-desc">Business Description & Specialties *</label>
+            <textarea id="reg-biz-desc" class="form-input" rows="2" placeholder="e.g., Commercial concrete, seismic retrofitting, and bridge infrastructure..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Preferred Social Platforms</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="platform" value="LinkedIn" checked> LinkedIn</label>
+              <label><input type="checkbox" name="platform" value="Instagram" checked> Instagram</label>
+              <label><input type="checkbox" name="platform" value="Facebook" checked> Facebook</label>
+              <label><input type="checkbox" name="platform" value="X"> X (Twitter)</label>
+            </div>
+          </div>
+
+          <div class="form-divider">Account Credentials</div>
+
+          <div class="form-group">
+            <label for="reg-email">Business Email *</label>
+            <input type="email" id="reg-email" class="form-input" placeholder="you@company.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="reg-password">Password (min 8 chars) *</label>
+            <input type="password" id="reg-password" class="form-input" minlength="8" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full btn-lg" id="btn-submit-signup">Create Account & Enter Workspace</button>
+        </form>
+
+        <!-- LOGIN FORM -->
+        <form class="auth-form hidden" id="form-login">
+          <div class="form-group">
+            <label for="login-email">Business Email</label>
+            <input type="email" id="login-email" class="form-input" placeholder="you@company.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-input" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full btn-lg" id="btn-submit-login">Sign In to SoCo</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: SETTINGS & ACCOUNT MANAGEMENT                         -->
+  <!-- ============================================================ -->
+  <div class="modal-backdrop hidden" id="settings-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Workspace & Profile Settings</h3>
+        <button class="modal-close" id="btn-close-settings">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-settings">
+          <div class="form-group">
+            <label for="set-biz-name">Business Name</label>
+            <input type="text" id="set-biz-name" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label for="set-biz-location">Location</label>
+            <input type="text" id="set-biz-location" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label for="set-biz-desc">Description</label>
+            <textarea id="set-biz-desc" class="form-input" rows="2" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="set-industry">Industry</label>
+            <select id="set-industry" class="form-input">
+              <option value="construction_civil_engineering">Construction / Civil Engineering</option>
+              <option value="nonprofit">Nonprofit & Philanthropy</option>
+              <option value="restaurant">Restaurant & Food Service</option>
+              <option value="law_office">Law Office & Legal Practice</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="set-email-freq">Email News Digest Frequency</label>
+            <select id="set-email-freq" class="form-input">
+              <option value="weekly">Weekly Consolidated Digest (Recommended)</option>
+              <option value="daily">Daily Digest (Only when news found)</option>
+              <option value="off">Off (In-App Notifications Only)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">Save Changes</button>
+        </form>
+
+        <div class="danger-zone">
+          <h4>Danger Zone</h4>
+          <p>Permanently remove your business profile, monthly conversations, captions, and news history.</p>
+          <button class="btn btn-danger-sm" id="btn-danger-delete">Delete Account & Wipe Data</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MODAL: INLINE CAPTION EDITOR                                 -->
+  <!-- ============================================================ -->
+  <div class="modal-backdrop hidden" id="caption-edit-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>✏️ Edit Draft Caption</h3>
+        <button class="modal-close" id="btn-close-caption-edit">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="form-caption-edit">
+          <input type="hidden" id="edit-caption-id">
+          <div class="form-group">
+            <label for="edit-caption-text">Caption Copy</label>
+            <textarea id="edit-caption-text" class="form-input" rows="5" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="edit-caption-hashtags">Hashtags (space separated)</label>
+            <input type="text" id="edit-caption-hashtags" class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="edit-caption-note">Revision Note (optional)</label>
+            <input type="text" id="edit-caption-note" class="form-input" placeholder="e.g., Shortened for Twitter">
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Save Revision (Archiving Previous Version)</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Application Logic -->
+  <script src="/frontend-static/app.js"></script>
+</body>
+</html>
